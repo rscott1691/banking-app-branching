@@ -3,6 +3,19 @@ public class BankAccount {
     private String owner;
     private double balance;
 
+    public void printSummary() {
+        System.out.println("Account Owner: " + owner);
+        System.out.println("Balance: $" + balance);
+    }
+    
+    public boolean isLowBalance(double threshold) {
+        return balance < threshold;
+    }
+    
+    public void applyInterest(double rate) {
+        balance += balance * rate;
+    }
+    
     public void transferTo(BankAccount otherAccount, double amount) {
         if(amount <= balance) {
             balance -= amount;
