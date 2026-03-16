@@ -30,4 +30,11 @@ public class BankAccount {
     public String getOwner() {
         return owner;
     }
+
+//added by kate
+    public void printSummary() {
+System.out.println("Account Owner: " + owner);
+System.out.println("Balance: $" + balance);
+}
+    
 }
