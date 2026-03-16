@@ -12,10 +12,6 @@ public class BankAccount {
         return balance < threshold;
     }
     
-    public void applyInterest(double rate) {
-        balance += balance * rate;
-    }
-    
     public void transferTo(BankAccount otherAccount, double amount) {
         if(amount <= balance) {
             balance -= amount;
