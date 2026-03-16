@@ -3,6 +3,28 @@ public class BankAccount {
     private String owner;
     private double balance;
 
+    public void printSummary() {
+        System.out.println("Account Owner: " + owner);
+        System.out.println("Balance: $" + balance);
+    }
+    
+    public boolean isLowBalance(double threshold) {
+        return balance < threshold;
+    }
+    
+    public void applyInterest(double rate) {
+        balance += balance * rate;
+    }
+    
+    public void transferTo(BankAccount otherAccount, double amount) {
+        if(amount <= balance) {
+            balance -= amount;
+            otherAccount.deposit(amount);
+        } else {
+            System.out.println("Transfer failed: insufficient funds.");
+        }
+    }
+
     public BankAccount(String owner) {
         this.owner = owner;
         this.balance = 0;
@@ -13,12 +35,10 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        if(amount <= balance)
-        {
+        if(amount <= balance) {
             balance -= amount;
         }
-        else
-        {
+        else {
             System.out.println("Insufficient funds.");
         }
     }
