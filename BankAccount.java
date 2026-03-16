@@ -30,4 +30,8 @@ public class BankAccount {
     public String getOwner() {
         return owner;
     }
+
+    public void applyInterest(double rate) {
+balance += balance * rate;
+}
 }
